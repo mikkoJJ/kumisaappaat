@@ -29,7 +29,7 @@
 		<h4 data-i18n="ability-starting-o">Ability Starting Values</h4>
 		<div class="input-row">
 			<label data-i18n="health:-o">Health: </label>
-			<input name="attr_health_default" type="number" value="4">
+			<input name="attr_health_default" type="number" value="1">
 			<label data-i18n="stability:-o">Stability: </label>
 			<input name="attr_stability_default" type="number" value="1">
 		</div>
@@ -243,10 +243,6 @@
 					</div>
 					<input name="attr_spinner" type="radio" value="" checked style="display: none;">
 
-					<div class="toc-hide">
-						<p data-i18n="mos-ability-message" class="mos-message">Click the <span></span> to mark your MOS ability.</p>
-						<p data-i18n="red-abilities-message" class="cherry-message">Abilities in <span>red</span> indicate that extra effects have been unlocked.</p>
-					</div>
 					<div class="reset">
 						<div class="placeholder reset-inv">
 							<span data-i18n="reset-investigative">Reset Investigative</span>
@@ -269,9 +265,9 @@
 						<div class="abilities-item">
 							<input class="constraint" name="attr_accounting_constraint" type="hidden" value="abd">
 							<input name="attr_accounting_dice" type="hidden" value="@{basic_roll}">
-							<span data-i18n="accounting-a" class="abilities-title">Accounting</span>
+							
 							<span class="inv-ability">
-								<input class="available" name="attr_accounting" type="number"><div>
+								<input class="available" name="attr_accounting" type="number" required><div>
 									<label class="increment"><input name="attr_spinner" type="radio" value="accounting_inc"></label>
 									<label class="decrement"><input name="attr_spinner" type="radio" value="accounting_dec"></label>
 								</div><span>/</span><input class="max" name="attr_accounting_max" type="number" value="0"><div>
@@ -280,6 +276,7 @@
 								</div>
 							</span>
 							<input class="free-points" name="attr_accounting_free" type="number" value="0" min="0">
+							<span data-i18n="accounting-a" class="abilities-title">Accounting</span>
 						</div>
 						<div class="abilities-item">
 							<input class="constraint" name="attr_anthropology_constraint" type="hidden" value="abd">
@@ -324,7 +321,22 @@
 									<label class="decrement"><input name="attr_spinner" type="radio" value="architecture_max-dec"></label>
 								</div>
 							</span>
-							<input class="free-points" name="attr_architecture_free" type="number" value="0" min="0">
+							<input class="free-points" name="attr_architecture_free" typwe="number" value="0" min="0">
+						</div>
+						<div class="abilities-item">
+							<input class="constraint" name="attr_astronomy_constraint" type="hidden" value="abd">
+							<input name="attr_astronomy_dice" type="hidden" value="@{basic_roll}">
+							<span data-i18n="astronomy-a" class="abilities-title">Astronomy</span>						
+							<span class="inv-ability">
+								<input class="available" name="attr_astronomy" type="number"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="astronomy_inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="astronomy_dec"></label>
+								</div><span>/</span><input class="max" name="attr_astronomy_max" type="number" value="0"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="astronomy_max-inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="astronomy_max-dec"></label>
+								</div>
+							</span>
+							<input class="free-points" name="attr_astronomy_free" type="number" value="0" min="0">
 						</div>
 						<div class="abilities-item">
 							<input class="constraint" name="attr_art-history_constraint" type="hidden" value="abd">
@@ -355,36 +367,6 @@
 								</div>
 							</span>
 							<input class="free-points" name="attr_biology_free" type="number" value="0" min="0">
-						</div>
-						<div class="abilities-item toc-hide">
-							<input class="constraint" name="attr_criminology_constraint" type="hidden" value="abd">
-							<input name="attr_criminology_dice" type="hidden" value="@{basic_roll}">
-							<span data-i18n="criminology-a" class="abilities-title">Criminology</span>						
-							<span class="inv-ability">
-								<input class="available" name="attr_criminology" type="number"><div>
-									<label class="increment"><input name="attr_spinner" type="radio" value="criminology_inc"></label>
-									<label class="decrement"><input name="attr_spinner" type="radio" value="criminology_dec"></label>
-								</div><span>/</span><input class="max" name="attr_criminology_max" type="number" value="0"><div>
-									<label class="increment"><input name="attr_spinner" type="radio" value="criminology_max-inc"></label>
-									<label class="decrement"><input name="attr_spinner" type="radio" value="criminology_max-dec"></label>
-								</div>
-							</span>
-							<input class="free-points" name="attr_criminology_free" type="number" value="0" min="0">
-						</div>
-						<div class="abilities-item">
-							<input class="constraint" name="attr_cryptography_constraint" type="hidden" value="abd">
-							<input name="attr_cryptography_dice" type="hidden" value="@{basic_roll}">
-							<span data-i18n="cryptography-a" class="abilities-title">Cryptography</span>						
-							<span class="inv-ability">
-								<input class="available" name="attr_cryptography" type="number"><div>
-									<label class="increment"><input name="attr_spinner" type="radio" value="cryptography_inc"></label>
-									<label class="decrement"><input name="attr_spinner" type="radio" value="cryptography_dec"></label>
-								</div><span>/</span><input class="max" name="attr_cryptography_max" type="number" value="0"><div>
-									<label class="increment"><input name="attr_spinner" type="radio" value="cryptography_max-inc"></label>
-									<label class="decrement"><input name="attr_spinner" type="radio" value="cryptography_max-dec"></label>
-								</div>
-							</span>
-							<input class="free-points" name="attr_cryptography_free" type="number" value="0" min="0">
 						</div>
 						<div class="abilities-item">
 							<input class="constraint" name="attr_history_constraint" type="hidden" value="abd">
@@ -420,6 +402,21 @@
 									<input type="text" name="attr_r-language">
 								</div>
 							</fieldset>
+						</div>
+						<div class="abilities-item">
+							<input class="constraint" name="attr_linguistics_constraint" type="hidden" value="abd">
+							<input name="attr_linguistics_dice" type="hidden" value="@{basic_roll}">
+							<span data-i18n="linguistics-a" class="abilities-title">Linguistics</span>						
+							<span class="inv-ability">
+								<input class="available" name="attr_linguistics" type="number"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="linguistics_inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="linguistics_dec"></label>
+								</div><span>/</span><input class="max" name="attr_linguistics_max" type="number" value="0"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="linguistics_max-inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="linguistics_max-dec"></label>
+								</div>
+							</span>
+							<input class="free-points" name="attr_linguistics_free" type="number" value="0" min="0">
 						</div>
 						<div class="abilities-item">
 							<input class="constraint" name="attr_law_constraint" type="hidden" value="abd">
@@ -481,6 +478,51 @@
 							</span>
 							<input class="free-points" name="attr_physics_free" type="number" value="0" min="0">
 						</div>
+						<div class="abilities-item">
+							<input class="constraint" name="attr_trivia_constraint" type="hidden" value="abd">
+							<input name="attr_trivia_dice" type="hidden" value="@{basic_roll}">
+							<span data-i18n="trivia-a" class="abilities-title">trivia</span>						
+							<span class="inv-ability">
+								<input class="available" name="attr_trivia" type="number"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="trivia_inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="trivia_dec"></label>
+								</div><span>/</span><input class="max" name="attr_trivia_max" type="number" value="0"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="trivia_max-inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="trivia_max-dec"></label>
+								</div>
+							</span>
+							<input class="free-points" name="attr_trivia_free" type="number" value="0" min="0">
+						</div>
+						<div class="abilities-item">
+							<input class="constraint" name="attr_psychology_constraint" type="hidden" value="abd">
+							<input name="attr_psychology_dice" type="hidden" value="@{basic_roll}">
+							<span data-i18n="psychology-a" class="abilities-title">Psychology</span>						
+							<span class="inv-ability">
+								<input class="available" name="attr_psychology" type="number"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="psychology_inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="psychology_dec"></label>
+								</div><span>/</span><input class="max" name="attr_psychology_max" type="number" value="0"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="psychology_max-inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="psychology_max-dec"></label>
+								</div>
+							</span>
+							<input class="free-points" name="attr_psychology_free" type="number" value="0" min="0">
+						</div>
+						<div class="abilities-item">
+							<input class="constraint" name="attr_textual-analysis_constraint" type="hidden" value="abd">
+							<input name="attr_textual-analysis_dice" type="hidden" value="@{basic_roll}">
+							<span data-i18n="textual-analysis-a" class="abilities-title">Textual Analysis</span>						
+							<span class="inv-ability">
+								<input class="available" name="attr_textual-analysis" type="number"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="textual-analysis_inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="textual-analysis_dec"></label>
+								</div><span>/</span><input class="max" name="attr_textual-analysis_max" type="number" value="0"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="textual-analysis_max-inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="textual-analysis_max-dec"></label>
+								</div>
+							</span>
+							<input class="free-points" name="attr_textual-analysis_free" type="number" value="0" min="0">
+						</div>
 						<fieldset class="repeating_academic">
 							<div class="abilities-item">
 								<input class="constraint" name="attr_r-academic_constraint" type="hidden" value="abd">
@@ -528,21 +570,6 @@
 								</div>
 							</span>
 							<input class="free-points" name="attr_bullshit-detector_free" type="number" value="0" min="0">
-						</div>
-						<div class="abilities-item">
-							<input class="constraint" name="attr_bureaucracy_constraint" type="hidden" value="abd">
-							<input name="attr_bureaucracy_dice" type="hidden" value="@{basic_roll}">
-							<span data-i18n="bureaucracy-a" class="abilities-title">Bureaucracy</span>						
-							<span class="inv-ability">
-								<input class="available" name="attr_bureaucracy" type="number"><div>
-									<label class="increment"><input name="attr_spinner" type="radio" value="bureaucracy_inc"></label>
-									<label class="decrement"><input name="attr_spinner" type="radio" value="bureaucracy_dec"></label>
-								</div><span>/</span><input class="max" name="attr_bureaucracy_max" type="number" value="0"><div>
-									<label class="increment"><input name="attr_spinner" type="radio" value="bureaucracy_max-inc"></label>
-									<label class="decrement"><input name="attr_spinner" type="radio" value="bureaucracy_max-dec"></label>
-								</div>
-							</span>
-							<input class="free-points" name="attr_bureaucracy_free" type="number" value="0" min="0">
 						</div>
 						<div class="abilities-item">
 							<input class="constraint" name="attr_cop-talk_constraint" type="hidden" value="abd">
@@ -680,21 +707,6 @@
 							<span data-i18n="technical-abilities-nba" class="toc-hide">TECHNICAL ABILITIES</span>
 						</div>
 						<div class="abilities-item">
-							<input class="constraint" name="attr_astronomy_constraint" type="hidden" value="abd">
-							<input name="attr_astronomy_dice" type="hidden" value="@{basic_roll}">
-							<span data-i18n="astronomy-a" class="abilities-title">Astronomy</span>						
-							<span class="inv-ability">
-								<input class="available" name="attr_astronomy" type="number"><div>
-									<label class="increment"><input name="attr_spinner" type="radio" value="astronomy_inc"></label>
-									<label class="decrement"><input name="attr_spinner" type="radio" value="astronomy_dec"></label>
-								</div><span>/</span><input class="max" name="attr_astronomy_max" type="number" value="0"><div>
-									<label class="increment"><input name="attr_spinner" type="radio" value="astronomy_max-inc"></label>
-									<label class="decrement"><input name="attr_spinner" type="radio" value="astronomy_max-dec"></label>
-								</div>
-							</span>
-							<input class="free-points" name="attr_astronomy_free" type="number" value="0" min="0">
-						</div>
-						<div class="abilities-item">
 							<input class="constraint" name="attr_chemistry_constraint" type="hidden" value="abd">
 							<input name="attr_chemistry_dice" type="hidden" value="@{basic_roll}">
 							<span data-i18n="chemistry-a" class="abilities-title">Chemistry</span>						
@@ -723,6 +735,21 @@
 								</div>
 							</span>
 							<input class="free-points" name="attr_cryptography_free" type="number" value="0" min="0">
+						</div>
+						<div class="abilities-item toc-hide">
+							<input class="constraint" name="attr_criminology_constraint" type="hidden" value="abd">
+							<input name="attr_criminology_dice" type="hidden" value="@{basic_roll}">
+							<span data-i18n="criminology-a" class="abilities-title">Criminology</span>						
+							<span class="inv-ability">
+								<input class="available" name="attr_criminology" type="number"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="criminology_inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="criminology_dec"></label>
+								</div><span>/</span><input class="max" name="attr_criminology_max" type="number" value="0"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="criminology_max-inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="criminology_max-dec"></label>
+								</div>
+							</span>
+							<input class="free-points" name="attr_criminology_free" type="number" value="0" min="0">
 						</div>
 						<div class="abilities-item toc-hide">
 							<input class="constraint" name="attr_data-recovery_constraint" type="hidden" value="abd">
@@ -882,7 +909,6 @@
 								Athletics
 							</button>
 							<span>
-								<input class="mos toc-hide" name="attr_mos" type="radio" value="athletics">
 								<input class="available" name="attr_athletics" type="number"><div>
 									<label class="increment"><input name="attr_spinner" type="radio" value="athletics_inc"></label>
 									<label class="decrement"><input name="attr_spinner" type="radio" value="athletics_dec"></label>
@@ -893,6 +919,24 @@
 							</span>
 							<input class="free-points" name="attr_athletics_free" type="number" value="0" min="0">
 						</div>
+						<div class="abilities-item toc-hide">
+							<input class="constraint" name="attr_bureaucracy_constraint" type="hidden" value="abd">
+							<input name="attr_bureaucracy_dice" type="hidden" value="@{basic_roll}">
+							<button data-i18n="bureaucracy-a" type="roll" name="attr_bureaucracy_roll" class="abilities-title"
+								value="&{template:@{sheetswitch}} @{bureaucracy_dice} {{rname=^{bureaucracy-a}}}">
+								Bureaucracy
+							</button>
+							<span>
+								<input class="available" name="attr_bureaucracy" type="number"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="bureaucracy_inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="bureaucracy_dec"></label>
+								</div><span>/</span><input class="max" name="attr_bureaucracy_max" type="number" value="0"><div>
+									<label class="increment"><input name="attr_spinner" type="radio" value="bureaucracy_max-inc"></label>
+									<label class="decrement"><input name="attr_spinner" type="radio" value="bureaucracy_max-dec"></label>
+								</div>
+							</span>
+							<input class="free-points" name="attr_bureaucracy_free" type="number" value="0" min="0">
+						</div>
 						<div class="abilities-item npc-ability nba-npc">
 							<input class="constraint" name="attr_driving_constraint" type="hidden" value="abd">
 							<input name="attr_driving_dice" type="hidden" value="@{basic_roll}">
@@ -901,7 +945,6 @@
 								Driving
 							</button>
 							<span>
-								<input class="mos toc-hide" name="attr_mos" type="radio" value="driving">
 								<input class="available" name="attr_driving" type="number"><div>
 									<label class="increment"><input name="attr_spinner" type="radio" value="driving_inc"></label>
 									<label class="decrement"><input name="attr_spinner" type="radio" value="driving_dec"></label>
@@ -925,7 +968,6 @@
 								Explosive Devices
 							</button>
 							<span>
-								<input class="mos toc-hide" name="attr_mos" type="radio" value="explosive-devices">
 								<input class="available" name="attr_explosive-devices" type="number"><div>
 									<label class="increment"><input name="attr_spinner" type="radio" value="explosive-devices_inc"></label>
 									<label class="decrement"><input name="attr_spinner" type="radio" value="explosive-devices_dec"></label>
@@ -944,7 +986,6 @@
 								Filch
 							</button>
 							<span>
-								<input class="mos toc-hide" name="attr_mos" type="radio" value="filch">
 								<input class="available" name="attr_filch" type="number"><div>
 									<label class="increment"><input name="attr_spinner" type="radio" value="filch_inc"></label>
 									<label class="decrement"><input name="attr_spinner" type="radio" value="filch_dec"></label>
@@ -1035,7 +1076,6 @@
 								Infiltration
 							</button>
 							<span>
-								<input class="mos toc-hide" name="attr_mos" type="radio" value="infiltration">
 								<input class="available" name="attr_infiltration" type="number"><div>
 									<label class="increment"><input name="attr_spinner" type="radio" value="infiltration_inc"></label>
 									<label class="decrement"><input name="attr_spinner" type="radio" value="infiltration_dec"></label>
@@ -1054,7 +1094,6 @@
 								Mechanics
 							</button>
 							<span>
-								<input class="mos toc-hide" name="attr_mos" type="radio" value="mechanics">
 								<input class="available" name="attr_mechanics" type="number"><div>
 									<label class="increment"><input name="attr_spinner" type="radio" value="mechanics_inc"></label>
 									<label class="decrement"><input name="attr_spinner" type="radio" value="mechanics_dec"></label>
@@ -1073,7 +1112,6 @@
 								Preparedness
 							</button>
 							<span>
-								<input class="mos toc-hide" name="attr_mos" type="radio" value="preparedness">
 								<input class="available" name="attr_preparedness" type="number"><div>
 									<label class="increment"><input name="attr_spinner" type="radio" value="preparedness_inc"></label>
 									<label class="decrement"><input name="attr_spinner" type="radio" value="preparedness_dec"></label>
@@ -1110,7 +1148,6 @@
 								Sense Trouble
 							</button>
 							<span>
-								<input class="mos toc-hide" name="attr_mos" type="radio" value="sense-trouble">
 								<input class="available" name="attr_sense-trouble" type="number"><div>
 									<label class="increment"><input name="attr_spinner" type="radio" value="sense-trouble_inc"></label>
 									<label class="decrement"><input name="attr_spinner" type="radio" value="sense-trouble_dec"></label>
@@ -1129,7 +1166,6 @@
 								Shrink
 							</button>
 							<span>
-								<input class="mos toc-hide" name="attr_mos" type="radio" value="shrink">
 								<input class="available" name="attr_shrink" type="number"><div>
 									<label class="increment"><input name="attr_spinner" type="radio" value="shrink_inc"></label>
 									<label class="decrement"><input name="attr_spinner" type="radio" value="shrink_dec"></label>
@@ -1184,7 +1220,6 @@
 								Surveillance
 							</button>
 							<span>
-								<input class="mos toc-hide" name="attr_mos" type="radio" value="surveillance">
 								<input class="available" name="attr_surveillance" type="number"><div>
 									<label class="increment"><input name="attr_spinner" type="radio" value="surveillance_inc"></label>
 									<label class="decrement"><input name="attr_spinner" type="radio" value="surveillance_dec"></label>
@@ -1213,7 +1248,6 @@
 									</div>
 								</div>
 								<span>
-									<input class="mos toc-hide" name="attr_r-mos" type="checkbox" value="1">
 									<input class="available" name="attr_r-general" type="number"><div>
 										<label class="increment"><input name="attr_r-general_inc" type="checkbox" value="1"></label>
 										<label class="decrement"><input name="attr_r-general_dec" type="checkbox" value="1"></label>
@@ -1917,7 +1951,7 @@ on("sheet:opened change:sheetsettings", function(eventInfo) {
 	});
 });
 
-on(changeString(["health", "stability", "sanity", "cover", "network"], ["default"]), function(eventInfo) {
+on(changeString(["health", "stability"], ["default"]), function(eventInfo) {
 	let trigger = eventInfo.sourceAttribute.split('_')[0],
 		updates = {};
 
@@ -2019,6 +2053,9 @@ on(changeString(allAbilities, maxChange), function(eventInfo) {
 	if(!npc) {
 		getSectionTotal(currentAbilities[eventInfo.category], eventInfo);
 	}
+	getAttrs([eventInfo.sourceAttribute], function(values) {
+		console.log(values[eventInfo.sourceAttribute])
+	});
 });
 
 on(changeString(sections, maxChange, true), function(eventInfo) {
@@ -2124,39 +2161,6 @@ on("change:unarmed_adjust", function() {
 	}) ;
 });
 
-on(changeString(["digital-intrusion", "medic", "shrink", "surveillance"], ["max"]), function(eventInfo) {
-	if(system == "nba") {
-		let updates = {}, trigger = eventInfo.sourceAttribute.split("_")[0],
-			cherries = {medic: "diagnosis", shrink: "bullshit-detector", surveillance: "electronic-surveillance"};
-		cherries["digital-intrusion"] = "cryptography";
-
-		getAttrs([trigger + "_max", trigger + "_cherry", "cherry-branch-height",
-				cherries[trigger], cherries[trigger] + "_max", cherries[trigger] + "_free"], function(values) {
-			let addPoint = function(ability, inc = 1) {
-				let points = values[ability] ? parseInt(values[ability]) : 0;
-
-				//updates[ability] = Math.max(points + inc, 0);
-				//updates[ability + "_max"] = Math.max(parseInt(values[ability + "_max"]) + inc, 0);
-				updates[ability + "_free"] = Math.max(parseInt(values[ability + "_free"]) + inc, 0);
-			};
-
-			if(values[trigger + "_max"] >= values["cherry-branch-height"]) {
-				if(!values[trigger + "_cherry"]) {
-					addPoint(cherries[trigger]);
-					updates[trigger + "_cherry"] = 1;
-				}
-			} else {
-				if(values[trigger + "_cherry"]) {
-					addPoint(cherries[trigger], -1);
-					updates[trigger + "_cherry"] = "";
-				}
-			}
-
-			setAttrs(updates);
-		});
-	}
-});
-
 on("change:armor-type", function(eventInfo) {
 	let updates = {};
 
@@ -2178,22 +2182,6 @@ on("change:armor-type", function(eventInfo) {
 	}
 
 	setAttrs(updates);
-});
-
-on(changeString(["sanity", "cthulhu-mythos"], ["max"]), function() {
-	getAttrs(["sanity", "sanity_max", "cthulhu-mythos_max"], function(values) {
-		let result = {};
-		if(!values["cthulhu-mythos_max"]) {
-			values["cthulhu-mythos_max"] = 0;
-		}
-		result["sanity_marker"] = parseInt(values["sanity_max"]);
-		if(parseInt(values["cthulhu-mythos_max"]) > 0) {
-			result["sanity_marker"] = Math.min(parseInt(values["sanity_max"]), 10 - parseInt(values["cthulhu-mythos_max"]));
-		}
-		result["sanity_marker"] = Math.max(result["sanity_marker"], 0);
-		result["sanity_marker"] = Math.min(result["sanity_marker"], 15);
-		setAttrs(result);
-	});
 });
 
 on("change:repeating_general:r-mos", function(eventInfo) {
